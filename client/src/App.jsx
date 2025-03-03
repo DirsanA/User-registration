@@ -11,7 +11,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<User></User>}></Route>
           <Route path="/createUser" element={<CreateUser></CreateUser>}></Route>
-          <Route path="/updateUser" element={<UpdateUser></UpdateUser>}></Route>
+          <Route
+            path="/updateUser/:id"
+            element={<UpdateUser></UpdateUser>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
