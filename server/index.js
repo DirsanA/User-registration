@@ -10,7 +10,6 @@ app.use(express.json()); // Parse incoming JSON requests
 const userModel = require("./models/user");
 const PORT = 5000;
 
-// Mongoose connection with error handling
 mongoose
   .connect("mongodb://127.0.0.1:27017/crud")
   .then(() => console.log("MongoDB connected"))
@@ -31,6 +30,18 @@ app.post("/createUser", function (req, res) {
     });
 });
 
+// featching user data
+
+app.get("/", function (req, res) {
+  userModel
+    .find({}) // empty array mean featching all data`
+    .then(function (user) {
+      return res.json(user);
+    })
+    .catch(function (err) {
+      console.log("un able to featching the user data " + err);
+    });
+});
 app.listen(PORT, function () {
   console.log(`Server is listening at port ${PORT}`);
 });

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const User = () => {
-  const [users, setUsers] = useState([
-    {
-      name: "Dirsan",
-      email: "dirsanantehun739@gmail.com",
-      age: "22",
-    },
-    {
-      name: "Samuel",
-      email: "samuelantehun@gmail.com",
-      age: "16",
-    },
-  ]);
+  const [users, setUsers] = useState([]);
 
+  useEffect(function () {
+    axios
+      .get("http://localhost:5000")
+      .then(function (result) {
+        setUsers(result.data);
+      })
+      .catch(function (err) {
+        console.log("error on the featching data :" + err);
+      });
+  }, []);
   return (
     <div className="d-flex align-items-center justify-content-center bg-primary vh-100">
       <div className="bg-white p-3 rounded w-50">

@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const CreateUser = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [age, setAge] = useState();
+  const navigate = useNavigate(); // which is programatic or dynamic navigate
+
   function Submit(e) {
     e.preventDefault();
-    axios // liberary used to make http request such as sending data to the api endpoint
+    axios
       .post("http://localhost:5000/createUser", { name, email, age })
       .then(function (result) {
         console.log(result);
+        navigate("/");
       })
       .catch(function (err) {
-        console.log(err);
+        console.log("Error in user registration" + err);
       });
   }
 
