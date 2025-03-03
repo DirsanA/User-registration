@@ -7,4 +7,7 @@ const userSchema = new mogoose.Schema({
   age: Number,
 });
 
-const userModel = mongoose.model("users", userSchema);
+const userModel = mongoose.model("users", userSchema); // creating model for user which is takes two parameter 1.
+//1st paramter collection in the database
+//2nd paramer which is the schema created
+module.exports = userModel;
