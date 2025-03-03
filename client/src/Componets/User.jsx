@@ -39,12 +39,15 @@ const User = () => {
                 <td>{user.email}</td>
                 <td>{user.age}</td>
                 <td>
-                  <button className="bg-success rounded text-light">
+                  <Link
+                    to="/updateUser"
+                    className="bg-success mx-1 p-1 px-2 rounded text-light text-decoration-none"
+                  >
                     Edit
-                  </button>{" "}
-                  <button className="bg-danger border-none rounded text-light">
+                  </Link>
+                  <Link className="bg-danger mx-1 p-1 px-2 rounded text-light text-decoration-none">
                     Delete
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}
